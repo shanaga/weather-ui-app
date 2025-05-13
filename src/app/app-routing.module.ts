@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const WeatherCityComponent = () => import('./components/weather-city/weather-city.component').then(m => m.WeatherCityComponent);
+import { CitySearchComponent } from './components/city-search/city-search.component';
+import { TemperatureDisplayComponent } from './components/temperature-display/temperature-display.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'weather', pathMatch: 'full' },
-  { path: "weather", loadChildren: WeatherCityComponent }
+  { path: '', component: CitySearchComponent },
+  { path: 'temperature', component: TemperatureDisplayComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
-
+export class AppRoutingModule {}
